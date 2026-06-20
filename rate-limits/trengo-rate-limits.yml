@@ -1,0 +1,56 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Trengo
+providerId: trengo
+created: '2026-06-20'
+modified: '2026-06-20'
+reconciled: true
+tags:
+- Customer Engagement
+- Omnichannel
+- Shared Inbox
+- Messaging
+- WhatsApp
+- Rate Limiting
+- Quotas
+- Throttling
+description: >-
+  The Trengo REST API enforces a per-token rate limit of 120 requests per
+  minute. Requests that exceed the limit receive an HTTP 429 (Too Many
+  Requests) response. Responses include a Retry-After header (seconds to wait)
+  and an X-RateLimit-Reset header (when the next call is allowed); honoring
+  Retry-After is the recommended way to back off.
+notes: >-
+  The 120 requests/minute per-token limit and 429 / Retry-After /
+  X-RateLimit-Reset behavior are documented on the Trengo developer rate
+  limiting page. WhatsApp and other channel-provider messaging limits are
+  governed separately by the underlying channel (e.g. Meta) and are not part
+  of the REST API rate limit.
+sources:
+- https://developers.trengo.com/docs/rate-limiting
+- https://developers.trengo.com/docs/welcome
+responseCodes:
+  throttled: 429
+limits:
+- name: Requests Per Minute (per token)
+  scope: token
+  metric: requests
+  limit: 120
+  notes: 120 requests per minute per personal access token across the v2 REST API.
+policies:
+- name: Retry-After Header
+  description: >-
+    On a 429, the Retry-After header gives the number of seconds to wait before
+    retrying; this is the safest signal because it avoids clock-sync issues.
+- name: X-RateLimit-Reset Header
+  description: >-
+    The X-RateLimit-Reset header indicates when the rate limit window resets and
+    the next call becomes available.
+- name: Backoff Strategy
+  description: >-
+    Clients should implement exponential backoff with jitter and respect
+    Retry-After rather than retrying immediately.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

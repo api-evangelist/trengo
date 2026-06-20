@@ -1,0 +1,83 @@
+aid: trengo
+name: Trengo
+review:
+  question: Does Trengo expose a documented public WebSocket or streaming API?
+  answer: false
+  date: '2026-06-20'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was created. Trengo's public integration surface is a
+    request/response REST API plus outbound webhooks (HTTP callbacks). Webhooks
+    are an HTTP push pattern, not a client-subscribed stream, and there is no
+    documented WebSocket (ws:// / wss://) or Server-Sent Events endpoint, so no
+    AsyncAPI channel was modeled.
+findings:
+  summary: |
+    Trengo does not publish a documented public WebSocket or streaming API.
+    Integrations use the REST API at https://app.trengo.com/api/v2 with Bearer
+    personal access tokens, and event delivery is handled through configurable
+    outbound webhooks that POST to a customer-supplied HTTPS endpoint when
+    events such as ticket created, assigned, closed, or message received occur.
+    No realtime bidirectional transport is documented.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://app.trengo.com/api/v2
+      documented: true
+    - protocol: Webhook
+      scheme: https
+      note: Outbound HTTP callbacks to a customer endpoint; managed via /webhooks and Settings > Apps & Integrations > Webhooks. Not a client-subscribed stream.
+      documented: true
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented in the Trengo developer reference as of the review date.
+  endpointsConfirmedRest:
+    - GET    https://app.trengo.com/api/v2/tickets
+    - POST   https://app.trengo.com/api/v2/tickets
+    - PATCH  https://app.trengo.com/api/v2/tickets/{ticket_id}/assign
+    - PATCH  https://app.trengo.com/api/v2/tickets/{ticket_id}/close
+    - GET    https://app.trengo.com/api/v2/tickets/{ticket_id}/messages
+    - POST   https://app.trengo.com/api/v2/tickets/{ticket_id}/messages
+    - POST   https://app.trengo.com/api/v2/tickets/{ticket_id}/messages/media
+    - GET    https://app.trengo.com/api/v2/contacts
+    - POST   https://app.trengo.com/api/v2/contacts
+    - GET    https://app.trengo.com/api/v2/contacts/{contact_id}
+    - PUT    https://app.trengo.com/api/v2/contacts/{contact_id}
+    - DELETE https://app.trengo.com/api/v2/contacts/{contact_id}
+    - GET    https://app.trengo.com/api/v2/channels/voice
+    - POST   https://app.trengo.com/api/v2/teams
+    - GET    https://app.trengo.com/api/v2/users
+    - POST   https://app.trengo.com/api/v2/custom_fields
+    - POST   https://app.trengo.com/api/v2/webhooks
+    - PUT    https://app.trengo.com/api/v2/webhooks/{webhook_id}
+    - DELETE https://app.trengo.com/api/v2/webhooks/{webhook_id}
+    - POST   https://app.trengo.com/api/v2/whatsapp/messages
+  webhooks:
+    documented: true
+    managementEndpoints:
+      - POST   https://app.trengo.com/api/v2/webhooks
+      - PUT    https://app.trengo.com/api/v2/webhooks/{webhook_id}
+      - DELETE https://app.trengo.com/api/v2/webhooks/{webhook_id}
+    note: Webhooks can also be configured in Settings > Apps & Integrations > Webhooks; they deliver event callbacks for ticket and message lifecycle events.
+sources:
+  - url: https://developers.trengo.com/docs/welcome
+    type: Documentation
+    note: REST API overview; base URL https://app.trengo.com/api/v2, Bearer token auth.
+  - url: https://developers.trengo.com/reference
+    type: APIReference
+    note: All documented endpoints are HTTPS REST; no WebSocket surface.
+  - url: https://developers.trengo.com/docs/rate-limiting
+    type: Documentation
+    note: 120 requests/minute per token, 429 with Retry-After / X-RateLimit-Reset.
+  - url: https://developers.trengo.com/docs/configuration
+    type: Documentation
+    note: Webhook configuration; outbound HTTP callbacks, not a streaming transport.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket or SSE streaming surface exists. Event delivery is via outbound
+    HTTP webhooks, which are documented in apis.yml as a dedicated Webhooks
+    sub-API rather than modeled as an AsyncAPI stream.

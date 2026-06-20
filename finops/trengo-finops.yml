@@ -1,0 +1,100 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Trengo
+providerId: trengo
+created: '2026-06-20'
+modified: '2026-06-20'
+reconciled: false
+tags:
+- Customer Engagement
+- Omnichannel
+- Shared Inbox
+- Messaging
+- WhatsApp
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of Trengo spend. Trengo bills a per-seat subscription (Boost,
+  Pro, Enterprise) that bundles included users and a monthly/annual
+  conversation allowance, plus usage-based overages for additional
+  conversations, AI-powered conversations, and additional seats. The REST API
+  is not separately metered; programmatic activity consumes the same
+  conversation and seat pools as the inbox UI.
+notes: >-
+  Per-seat and per-conversation rates are published in EUR on the Trengo
+  pricing page and vary by billing term and region; verify on reconciliation.
+  WhatsApp/Meta conversation charges flowing through Trengo are governed by the
+  underlying channel provider and may appear as pass-through costs.
+sources:
+- https://trengo.com/pricing
+- https://trengo.com/api
+- https://developers.trengo.com/docs/welcome
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Trengo
+serviceCategory: Customer Engagement and Communications
+billingModel:
+  pricingCategory: Subscription-Plus-Usage
+  billingFrequency: Monthly
+  billingCurrency: EUR
+  chargeCategories:
+  - Subscription
+  - Usage
+  - Adjustment
+focusColumns:
+  ServiceName: Trengo
+  ServiceCategory: Customer Engagement and Communications
+  ProviderName: Trengo
+  PublisherName: Trengo
+  InvoiceIssuerName: Trengo
+  BillingCurrency: EUR
+  ChargeCategory: Subscription
+  PricingCategory: Subscription-Plus-Usage
+meters:
+- name: seats
+  description: Active user seats, included up to the plan allowance then billed per additional user.
+  unit: users
+  aggregation: max
+  dimensions:
+  - account
+  - plan
+- name: conversations
+  description: Conversations handled, included up to the plan allowance then billed per 100 overage.
+  unit: conversations
+  aggregation: sum
+  dimensions:
+  - account
+  - plan
+- name: ai_conversations
+  description: AI-powered conversations, billed per conversation on top of the base plan.
+  unit: conversations
+  aggregation: sum
+  dimensions:
+  - account
+  - plan
+- name: channel_messages
+  description: Outbound channel messages (e.g. WhatsApp templates) that may incur pass-through provider charges.
+  unit: messages
+  aggregation: sum
+  dimensions:
+  - account
+  - channel
+principles:
+- name: Visibility
+  description: Track seat count and monthly conversation volume against the plan allowance to anticipate overages.
+- name: Allocation
+  description: Tag teams, channels, and API tokens to map conversation and seat usage to internal cost centers.
+- name: Optimization
+  description: Right-size the plan tier to actual seats and conversation volume; reserve AI conversations for cases where automation deflects human handling.
+- name: Accountability
+  description: Assign owners per workspace and review conversation/seat overages monthly against budget.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

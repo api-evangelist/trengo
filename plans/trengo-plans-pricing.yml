@@ -1,0 +1,179 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Trengo
+providerId: trengo
+created: '2026-06-20'
+modified: '2026-06-20'
+reconciled: false
+tags:
+- Customer Engagement
+- Omnichannel
+- Shared Inbox
+- Messaging
+- WhatsApp
+- Customer Support
+- Plans
+description: >-
+  Trengo sells per-seat subscription plans (Boost, Pro, Enterprise) that bundle
+  a number of included users and a monthly/annual conversation allowance, with
+  usage-based overages for additional conversations, AI-powered conversations,
+  and additional users. The REST API is available across plans and is not
+  separately metered; API usage counts against the same shared
+  conversation/seat model. Prices below are as published on the Trengo pricing
+  page in EUR and may vary by region, billing term, and negotiation; values are
+  not reconciled.
+notes: >-
+  Pricing reflects the public Trengo pricing page (EUR). Boost and Pro list
+  separate annual vs. monthly per-month rates and per-additional-user rates.
+  Enterprise is custom-quoted. Confirm current included users, conversation
+  allowances, and overage rates with Trengo sales on reconciliation.
+sources:
+- https://trengo.com/pricing
+- https://trengo.com/api
+- https://developers.trengo.com/docs/welcome
+plans:
+- id: trengo-boost
+  name: Boost
+  type: subscription
+  description: >-
+    Entry tier with 10 users and 6,000 conversations per year (500/month)
+    included; per-seat omnichannel inbox with WhatsApp Business and AI agent.
+  entries:
+  - label: Base Subscription (annual billing)
+    name: boost_base_annual
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: EUR 299 / month billed annually
+    userMultiplied: false
+  - label: Base Subscription (monthly billing)
+    name: boost_base_monthly
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: EUR 349 / month
+    userMultiplied: false
+  - label: Additional User
+    name: boost_additional_user
+    type: usage
+    metric: users
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: EUR 25 (annual) / EUR 30 (monthly) per user
+    userMultiplied: true
+  elements:
+  - name: 10 Users Included
+  - name: 6,000 Conversations / year
+  - name: Omnichannel Inbox
+  - name: WhatsApp Business API
+  - name: AI Agent (HelpMate)
+  - name: REST API Access
+- id: trengo-pro
+  name: Pro
+  type: subscription
+  description: >-
+    Most popular tier with 20 users and 18,000 conversations per year
+    (1,500/month) included, adding advanced security and integrations.
+  entries:
+  - label: Base Subscription (annual billing)
+    name: pro_base_annual
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: EUR 499 / month billed annually
+    userMultiplied: false
+  - label: Base Subscription (monthly billing)
+    name: pro_base_monthly
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: EUR 599 / month
+    userMultiplied: false
+  - label: Additional User
+    name: pro_additional_user
+    type: usage
+    metric: users
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: EUR 40 (annual) / EUR 50 (monthly) per user
+    userMultiplied: true
+  elements:
+  - name: 20 Users Included
+  - name: 18,000 Conversations / year
+  - name: Advanced Security
+  - name: Advanced Integrations
+  - name: WhatsApp Business API
+  - name: AI Agent (HelpMate)
+  - name: REST API Access
+- id: trengo-usage
+  name: Usage Overages
+  type: usage
+  description: >-
+    Metered charges that apply on top of Boost and Pro once included
+    allowances are consumed.
+  entries:
+  - label: Additional Conversations
+    name: additional_conversations
+    type: usage
+    metric: conversations
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 100
+    price: EUR 15 (annual) / EUR 18 (monthly) per 100 conversations
+    userMultiplied: false
+  - label: AI-Powered Conversation
+    name: ai_conversation
+    type: usage
+    metric: conversations
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: EUR 0.25 (annual) / EUR 0.30 (monthly) per AI conversation
+    userMultiplied: false
+  elements:
+  - name: Conversation Overage
+  - name: AI Conversation Metering
+- id: trengo-enterprise
+  name: Enterprise
+  type: enterprise
+  description: >-
+    Custom user count, custom conversation allowance, dedicated success
+    manager, and negotiated terms. Contact Trengo sales.
+  entries:
+  - label: Enterprise Agreement
+    name: enterprise
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Custom Users
+  - name: Custom Conversation Allowance
+  - name: Dedicated Success Manager
+  - name: Enterprise Support
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

@@ -1,0 +1,232 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Trengo API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tickets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": { "name": "List all tickets", "type": "http" },
+          "http": { "method": "GET", "url": "https://app.trengo.com/api/v2/tickets" },
+          "docs": "Returns all tickets the authenticated user is authorized to see."
+        },
+        {
+          "info": { "name": "Create a ticket", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://app.trengo.com/api/v2/tickets",
+            "body": { "type": "json", "data": "{\n  \"channel_id\": 0,\n  \"contact_identifier\": \"\"\n}" }
+          },
+          "docs": "Creates a new ticket on a channel for a given contact identifier."
+        },
+        {
+          "info": { "name": "Assign a ticket", "type": "http" },
+          "http": {
+            "method": "PATCH",
+            "url": "https://app.trengo.com/api/v2/tickets/{ticket_id}/assign",
+            "body": { "type": "json", "data": "{\n  \"user_id\": 0\n}" }
+          },
+          "docs": "Assigns a ticket to a user and/or team."
+        },
+        {
+          "info": { "name": "Close a ticket", "type": "http" },
+          "http": { "method": "PATCH", "url": "https://app.trengo.com/api/v2/tickets/{ticket_id}/close" },
+          "docs": "Marks a ticket as closed."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Messages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": { "name": "List all messages", "type": "http" },
+          "http": { "method": "GET", "url": "https://app.trengo.com/api/v2/tickets/{ticket_id}/messages" },
+          "docs": "Returns all messages for the given ticket."
+        },
+        {
+          "info": { "name": "Send a ticket message", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://app.trengo.com/api/v2/tickets/{ticket_id}/messages",
+            "body": { "type": "json", "data": "{\n  \"body\": \"\"\n}" }
+          },
+          "docs": "Sends an outbound text message on the ticket's channel."
+        },
+        {
+          "info": { "name": "Send a ticket media message", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://app.trengo.com/api/v2/tickets/{ticket_id}/messages/media",
+            "body": { "type": "multipart-form", "data": [] }
+          },
+          "docs": "Sends an outbound message with one or more media attachments."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Contacts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": { "name": "List contacts", "type": "http" },
+          "http": { "method": "GET", "url": "https://app.trengo.com/api/v2/contacts" },
+          "docs": "Returns a paginated list of contacts."
+        },
+        {
+          "info": { "name": "Create a contact", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://app.trengo.com/api/v2/contacts",
+            "body": { "type": "json", "data": "{\n  \"name\": \"\",\n  \"identifier\": \"\",\n  \"channel_id\": 0\n}" }
+          },
+          "docs": "Creates a new contact."
+        },
+        {
+          "info": { "name": "Get a contact", "type": "http" },
+          "http": { "method": "GET", "url": "https://app.trengo.com/api/v2/contacts/{contact_id}" },
+          "docs": "Returns a single contact."
+        },
+        {
+          "info": { "name": "Update a contact", "type": "http" },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.trengo.com/api/v2/contacts/{contact_id}",
+            "body": { "type": "json", "data": "{\n  \"name\": \"\"\n}" }
+          },
+          "docs": "Updates an existing contact."
+        },
+        {
+          "info": { "name": "Delete a contact", "type": "http" },
+          "http": { "method": "DELETE", "url": "https://app.trengo.com/api/v2/contacts/{contact_id}" },
+          "docs": "Deletes a contact."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Channels",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": { "name": "List all voice channels", "type": "http" },
+          "http": { "method": "GET", "url": "https://app.trengo.com/api/v2/channels/voice" },
+          "docs": "Returns the connected voice channels."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Teams and Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": { "name": "Create a team", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://app.trengo.com/api/v2/teams",
+            "body": { "type": "json", "data": "{\n  \"name\": \"\"\n}" }
+          },
+          "docs": "Creates a new team."
+        },
+        {
+          "info": { "name": "List users", "type": "http" },
+          "http": { "method": "GET", "url": "https://app.trengo.com/api/v2/users" },
+          "docs": "Returns a paginated list of users (agents)."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Labels and Custom Fields",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": { "name": "Attach a label to a ticket", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://app.trengo.com/api/v2/tickets/{ticket_id}/labels",
+            "body": { "type": "json", "data": "{\n  \"label_id\": 0\n}" }
+          },
+          "docs": "Attaches an existing label to a ticket."
+        },
+        {
+          "info": { "name": "Create a custom field", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://app.trengo.com/api/v2/custom_fields",
+            "body": { "type": "json", "data": "{\n  \"title\": \"\",\n  \"type\": \"TEXT\"\n}" }
+          },
+          "docs": "Creates a new custom field."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Webhooks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": { "name": "Create a webhook", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://app.trengo.com/api/v2/webhooks",
+            "body": { "type": "json", "data": "{\n  \"url\": \"\"\n}" }
+          },
+          "docs": "Registers a new webhook."
+        },
+        {
+          "info": { "name": "Update a webhook", "type": "http" },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.trengo.com/api/v2/webhooks/{webhook_id}",
+            "body": { "type": "json", "data": "{\n  \"url\": \"\"\n}" }
+          },
+          "docs": "Updates an existing webhook."
+        },
+        {
+          "info": { "name": "Delete a webhook", "type": "http" },
+          "http": { "method": "DELETE", "url": "https://app.trengo.com/api/v2/webhooks/{webhook_id}" },
+          "docs": "Deletes a webhook."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "WhatsApp",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": { "name": "Send a WhatsApp template", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://app.trengo.com/api/v2/whatsapp/messages",
+            "body": { "type": "json", "data": "{\n  \"recipient_phone_number\": \"\",\n  \"hsm_id\": 0,\n  \"channel_id\": 0\n}" }
+          },
+          "docs": "Sends a pre-approved WhatsApp Business message template to a contact."
+        }
+      ]
+    }
+  ]
+}

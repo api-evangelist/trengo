@@ -1,0 +1,220 @@
+aid: trengo
+url: https://raw.githubusercontent.com/api-evangelist/trengo/refs/heads/main/apis.yml
+name: Trengo
+kind: company
+description: Trengo is an omnichannel customer-engagement and shared-inbox platform
+  that unifies email, WhatsApp, live chat, voice, SMS, and social channels into one
+  team inbox with AI agents. The Trengo REST API (app.trengo.com/api/v2) lets you
+  create and manage tickets, contacts, messages, channels, teams, users, labels,
+  custom fields, webhooks, and WhatsApp templates programmatically with Bearer-token
+  authentication.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Customer Engagement
+- Omnichannel
+- Shared Inbox
+- Messaging
+- WhatsApp
+- Customer Support
+created: '2026-06-20'
+modified: '2026-06-20'
+specificationVersion: '0.19'
+apis:
+- aid: trengo:trengo-tickets-api
+  name: Trengo Tickets API
+  tags:
+  - Tickets
+  - Conversations
+  - Inbox
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developers.trengo.com/reference/list-all-tickets
+  baseURL: https://app.trengo.com/api/v2
+  properties:
+  - url: https://developers.trengo.com/docs/welcome
+    type: Documentation
+  - url: https://developers.trengo.com/reference/list-all-tickets
+    type: APIReference
+  - url: openapi/trengo-openapi.yml
+    type: OpenAPI
+  - url: collections/trengo.postman_collection.json
+    type: PostmanCollection
+  - url: collections/trengo.opencollection.json
+    type: OpenCollection
+  description: Create, list, assign, label, and close tickets (conversations) across
+    every connected channel in the shared inbox, with filters for status, channel,
+    user, label, and contact.
+- aid: trengo:trengo-contacts-api
+  name: Trengo Contacts API
+  tags:
+  - Contacts
+  - Profiles
+  - CRM
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developers.trengo.com/reference
+  baseURL: https://app.trengo.com/api/v2
+  properties:
+  - url: https://developers.trengo.com/docs/welcome
+    type: Documentation
+  - url: https://developers.trengo.com/reference
+    type: APIReference
+  - url: openapi/trengo-openapi.yml
+    type: OpenAPI
+  - url: collections/trengo.postman_collection.json
+    type: PostmanCollection
+  - url: collections/trengo.opencollection.json
+    type: OpenCollection
+  description: Manage contacts and contact profiles - create, fetch, list, update,
+    and delete the people behind conversations, including identifiers and channel
+    bindings used to route messages.
+- aid: trengo:trengo-messages-api
+  name: Trengo Messages API
+  tags:
+  - Messages
+  - Send
+  - Media
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developers.trengo.com/reference/list-all-messages
+  baseURL: https://app.trengo.com/api/v2
+  properties:
+  - url: https://developers.trengo.com/docs/welcome
+    type: Documentation
+  - url: https://developers.trengo.com/reference/list-all-messages
+    type: APIReference
+  - url: openapi/trengo-openapi.yml
+    type: OpenAPI
+  - url: collections/trengo.postman_collection.json
+    type: PostmanCollection
+  - url: collections/trengo.opencollection.json
+    type: OpenCollection
+  description: List messages on a ticket and send outbound text or media messages
+    to the contact's channel, including file uploads attached to outgoing replies.
+- aid: trengo:trengo-channels-api
+  name: Trengo Channels API
+  tags:
+  - Channels
+  - Voice
+  - Omnichannel
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developers.trengo.com/reference
+  baseURL: https://app.trengo.com/api/v2
+  properties:
+  - url: https://developers.trengo.com/docs/welcome
+    type: Documentation
+  - url: https://developers.trengo.com/reference
+    type: APIReference
+  - url: openapi/trengo-openapi.yml
+    type: OpenAPI
+  - url: collections/trengo.postman_collection.json
+    type: PostmanCollection
+  - url: collections/trengo.opencollection.json
+    type: OpenCollection
+  description: List the connected channels - email, WhatsApp, chat, voice, SMS, and
+    social - that messages and tickets are bound to, including voice channels for
+    telephony integrations.
+- aid: trengo:trengo-teams-users-api
+  name: Trengo Teams and Users API
+  tags:
+  - Teams
+  - Users
+  - Agents
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developers.trengo.com/reference
+  baseURL: https://app.trengo.com/api/v2
+  properties:
+  - url: https://developers.trengo.com/docs/welcome
+    type: Documentation
+  - url: https://developers.trengo.com/reference
+    type: APIReference
+  - url: openapi/trengo-openapi.yml
+    type: OpenAPI
+  - url: collections/trengo.postman_collection.json
+    type: PostmanCollection
+  - url: collections/trengo.opencollection.json
+    type: OpenCollection
+  description: Manage teams and the agents (users) that handle conversations - list
+    users, create teams, and use these identifiers when assigning tickets or filtering
+    inbox views.
+- aid: trengo:trengo-labels-custom-fields-api
+  name: Trengo Labels and Custom Fields API
+  tags:
+  - Labels
+  - Custom Fields
+  - Metadata
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developers.trengo.com/reference
+  baseURL: https://app.trengo.com/api/v2
+  properties:
+  - url: https://developers.trengo.com/docs/welcome
+    type: Documentation
+  - url: https://developers.trengo.com/reference
+    type: APIReference
+  - url: openapi/trengo-openapi.yml
+    type: OpenAPI
+  - url: collections/trengo.postman_collection.json
+    type: PostmanCollection
+  - url: collections/trengo.opencollection.json
+    type: OpenCollection
+  description: Create and attach labels to tickets and define custom fields to store
+    structured metadata on tickets and contacts for routing, reporting, and
+    automation.
+- aid: trengo:trengo-webhooks-api
+  name: Trengo Webhooks API
+  tags:
+  - Webhooks
+  - Events
+  - Callbacks
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developers.trengo.com/docs/configuration
+  baseURL: https://app.trengo.com/api/v2
+  properties:
+  - url: https://developers.trengo.com/docs/configuration
+    type: Documentation
+  - url: https://developers.trengo.com/reference
+    type: APIReference
+  - url: openapi/trengo-openapi.yml
+    type: OpenAPI
+  - url: collections/trengo.postman_collection.json
+    type: PostmanCollection
+  - url: collections/trengo.opencollection.json
+    type: OpenCollection
+  description: Register, update, and delete webhooks so external systems receive
+    real-time callbacks when tickets are created, assigned, closed, or messages
+    are received.
+- aid: trengo:trengo-whatsapp-templates-api
+  name: Trengo WhatsApp Templates API
+  tags:
+  - WhatsApp
+  - Templates
+  - Outbound
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developers.trengo.com/reference
+  baseURL: https://app.trengo.com/api/v2
+  properties:
+  - url: https://developers.trengo.com/docs/welcome
+    type: Documentation
+  - url: https://developers.trengo.com/reference
+    type: APIReference
+  - url: openapi/trengo-openapi.yml
+    type: OpenAPI
+  - url: collections/trengo.postman_collection.json
+    type: PostmanCollection
+  - url: collections/trengo.opencollection.json
+    type: OpenCollection
+  description: Send pre-approved WhatsApp Business message templates to contacts to
+    initiate or continue conversations outside the 24-hour customer-care window.
+common:
+- type: LinkedIn
+  url: https://www.linkedin.com/company/trengo
+- type: Website
+  url: https://trengo.com/
+- type: Documentation
+  url: https://developers.trengo.com/docs/welcome
+- type: Plans
+  url: plans/trengo-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/trengo-rate-limits.yml
+- type: FinOps
+  url: finops/trengo-finops.yml
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
