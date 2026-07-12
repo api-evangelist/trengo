@@ -1,0 +1,14 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/trengo-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  description: 'Personal access token generated in the Trengo account, sent as `Authorization:
+    Bearer {TOKEN}`.'
+  sources:
+  - openapi/trengo-openapi.yml

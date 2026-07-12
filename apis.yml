@@ -203,6 +203,14 @@ apis:
   description: Send pre-approved WhatsApp Business message templates to contacts to
     initiate or continue conversations outside the 24-hour customer-care window.
 common:
+- type: TrustCenter
+  url: security/trengo-trust-center.yml
+- type: VulnerabilityDisclosure
+  url: security/trengo-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/trengo-domain-security.yml
+- type: Authentication
+  url: authentication/trengo-authentication.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/trengo
 - type: Website
@@ -215,6 +223,8 @@ common:
   url: rate-limits/trengo-rate-limits.yml
 - type: FinOps
   url: finops/trengo-finops.yml
+- url: https://trengo.com/blog
+  type: Blog
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
