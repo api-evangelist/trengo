@@ -203,6 +203,8 @@ apis:
   description: Send pre-approved WhatsApp Business message templates to contacts to
     initiate or continue conversations outside the 24-hour customer-care window.
 common:
+- type: AgenticAccess
+  url: agentic-access/trengo-agentic-access.yml
 - type: TrustCenter
   url: security/trengo-trust-center.yml
 - type: VulnerabilityDisclosure
