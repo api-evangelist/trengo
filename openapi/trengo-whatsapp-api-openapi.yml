@@ -1,0 +1,116 @@
+openapi: 3.0.1
+info:
+  title: Trengo Channels WhatsApp API
+  description: REST API for the Trengo omnichannel customer-engagement platform. Manage tickets (conversations), contacts and profiles, messages, channels, teams and users, labels and custom fields, webhooks, and outbound WhatsApp templates across email, WhatsApp, live chat, voice, SMS, and social channels. All requests authenticate with a personal access token sent as an HTTP Bearer token.
+  termsOfService: https://trengo.com/terms-conditions
+  contact:
+    name: Trengo Support
+    url: https://developers.trengo.com/docs/welcome
+  version: '2.0'
+servers:
+- url: https://app.trengo.com/api/v2
+  description: Trengo REST API v2
+security:
+- bearerAuth: []
+tags:
+- name: WhatsApp
+  description: Send approved WhatsApp Business templates.
+paths:
+  /whatsapp/messages:
+    post:
+      operationId: sendWhatsAppTemplate
+      tags:
+      - WhatsApp
+      summary: Send a WhatsApp template
+      description: Sends a pre-approved WhatsApp Business message template to a contact on a WhatsApp channel.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SendWhatsAppTemplateRequest'
+      responses:
+        '201':
+          description: The sent template message.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+components:
+  schemas:
+    Message:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        ticket_id:
+          type: integer
+          format: int32
+        body:
+          type: string
+        type:
+          type: string
+          enum:
+          - INBOUND
+          - OUTBOUND
+        attachments:
+          type: array
+          items:
+            type: object
+            properties:
+              url:
+                type: string
+              filename:
+                type: string
+        created_at:
+          type: string
+          format: date-time
+    SendWhatsAppTemplateRequest:
+      type: object
+      required:
+      - recipient_phone_number
+      - hsm_id
+      - channel_id
+      properties:
+        recipient_phone_number:
+          type: string
+          description: E.164 phone number of the WhatsApp recipient.
+        hsm_id:
+          type: integer
+          format: int32
+          description: The approved WhatsApp template (HSM) identifier.
+        channel_id:
+          type: integer
+          format: int32
+        params:
+          type: array
+          description: Ordered template parameter values.
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              key:
+                type: string
+              value:
+                type: string
+  responses:
+    TooManyRequests:
+      description: Rate limit exceeded (120 requests per minute per token). Honor the Retry-After and X-RateLimit-Reset response headers.
+      headers:
+        Retry-After:
+          schema:
+            type: integer
+          description: Seconds to wait before retrying.
+        X-RateLimit-Reset:
+          schema:
+            type: integer
+          description: Unix timestamp when the limit resets.
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Personal access token generated in the Trengo account, sent as `Authorization: Bearer {TOKEN}`.'

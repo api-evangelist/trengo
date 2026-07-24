@@ -1,0 +1,109 @@
+openapi: 3.0.1
+info:
+  title: Trengo Channels Teams and Users API
+  description: REST API for the Trengo omnichannel customer-engagement platform. Manage tickets (conversations), contacts and profiles, messages, channels, teams and users, labels and custom fields, webhooks, and outbound WhatsApp templates across email, WhatsApp, live chat, voice, SMS, and social channels. All requests authenticate with a personal access token sent as an HTTP Bearer token.
+  termsOfService: https://trengo.com/terms-conditions
+  contact:
+    name: Trengo Support
+    url: https://developers.trengo.com/docs/welcome
+  version: '2.0'
+servers:
+- url: https://app.trengo.com/api/v2
+  description: Trengo REST API v2
+security:
+- bearerAuth: []
+tags:
+- name: Teams and Users
+  description: Manage teams and list agents.
+paths:
+  /teams:
+    post:
+      operationId: createTeam
+      tags:
+      - Teams and Users
+      summary: Create a team
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              properties:
+                name:
+                  type: string
+      responses:
+        '201':
+          description: The created team.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Team'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+  /users:
+    get:
+      operationId: listUsers
+      tags:
+      - Teams and Users
+      summary: List users
+      parameters:
+      - name: page
+        in: query
+        schema:
+          type: integer
+          default: 1
+      responses:
+        '200':
+          description: A paginated list of users (agents).
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/User'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        email:
+          type: string
+        is_admin:
+          type: boolean
+    Team:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+  responses:
+    TooManyRequests:
+      description: Rate limit exceeded (120 requests per minute per token). Honor the Retry-After and X-RateLimit-Reset response headers.
+      headers:
+        Retry-After:
+          schema:
+            type: integer
+          description: Seconds to wait before retrying.
+        X-RateLimit-Reset:
+          schema:
+            type: integer
+          description: Unix timestamp when the limit resets.
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Personal access token generated in the Trengo account, sent as `Authorization: Bearer {TOKEN}`.'

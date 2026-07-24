@@ -1,0 +1,180 @@
+openapi: 3.0.1
+info:
+  title: Trengo Channels Messages API
+  description: REST API for the Trengo omnichannel customer-engagement platform. Manage tickets (conversations), contacts and profiles, messages, channels, teams and users, labels and custom fields, webhooks, and outbound WhatsApp templates across email, WhatsApp, live chat, voice, SMS, and social channels. All requests authenticate with a personal access token sent as an HTTP Bearer token.
+  termsOfService: https://trengo.com/terms-conditions
+  contact:
+    name: Trengo Support
+    url: https://developers.trengo.com/docs/welcome
+  version: '2.0'
+servers:
+- url: https://app.trengo.com/api/v2
+  description: Trengo REST API v2
+security:
+- bearerAuth: []
+tags:
+- name: Messages
+  description: List and send text and media messages on a ticket.
+paths:
+  /tickets/{ticket_id}/messages:
+    get:
+      operationId: listMessages
+      tags:
+      - Messages
+      summary: List all messages
+      description: Returns all messages for the given ticket.
+      parameters:
+      - $ref: '#/components/parameters/TicketId'
+      - name: page
+        in: query
+        schema:
+          type: integer
+          default: 1
+      responses:
+        '200':
+          description: A paginated list of messages.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageList'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+    post:
+      operationId: sendMessage
+      tags:
+      - Messages
+      summary: Send a ticket message
+      description: Sends an outbound text message on the ticket's channel.
+      parameters:
+      - $ref: '#/components/parameters/TicketId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SendMessageRequest'
+      responses:
+        '201':
+          description: The sent message.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+  /tickets/{ticket_id}/messages/media:
+    post:
+      operationId: sendMediaMessage
+      tags:
+      - Messages
+      summary: Send a ticket media message
+      description: Sends an outbound message with one or more media attachments.
+      parameters:
+      - $ref: '#/components/parameters/TicketId'
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                body:
+                  type: string
+                file:
+                  type: string
+                  format: binary
+      responses:
+        '201':
+          description: The sent media message.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+components:
+  schemas:
+    MessageList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Message'
+        meta:
+          $ref: '#/components/schemas/PaginationMeta'
+    SendMessageRequest:
+      type: object
+      required:
+      - body
+      properties:
+        body:
+          type: string
+          description: The message text to send.
+        internal_note:
+          type: boolean
+          description: When true, posts an internal note instead of an outbound message.
+    PaginationMeta:
+      type: object
+      properties:
+        current_page:
+          type: integer
+        last_page:
+          type: integer
+        per_page:
+          type: integer
+        total:
+          type: integer
+    Message:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        ticket_id:
+          type: integer
+          format: int32
+        body:
+          type: string
+        type:
+          type: string
+          enum:
+          - INBOUND
+          - OUTBOUND
+        attachments:
+          type: array
+          items:
+            type: object
+            properties:
+              url:
+                type: string
+              filename:
+                type: string
+        created_at:
+          type: string
+          format: date-time
+  parameters:
+    TicketId:
+      name: ticket_id
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int32
+  responses:
+    TooManyRequests:
+      description: Rate limit exceeded (120 requests per minute per token). Honor the Retry-After and X-RateLimit-Reset response headers.
+      headers:
+        Retry-After:
+          schema:
+            type: integer
+          description: Seconds to wait before retrying.
+        X-RateLimit-Reset:
+          schema:
+            type: integer
+          description: Unix timestamp when the limit resets.
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Personal access token generated in the Trengo account, sent as `Authorization: Bearer {TOKEN}`.'

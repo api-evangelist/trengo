@@ -1,0 +1,300 @@
+openapi: 3.0.1
+info:
+  title: Trengo Channels Tickets API
+  description: REST API for the Trengo omnichannel customer-engagement platform. Manage tickets (conversations), contacts and profiles, messages, channels, teams and users, labels and custom fields, webhooks, and outbound WhatsApp templates across email, WhatsApp, live chat, voice, SMS, and social channels. All requests authenticate with a personal access token sent as an HTTP Bearer token.
+  termsOfService: https://trengo.com/terms-conditions
+  contact:
+    name: Trengo Support
+    url: https://developers.trengo.com/docs/welcome
+  version: '2.0'
+servers:
+- url: https://app.trengo.com/api/v2
+  description: Trengo REST API v2
+security:
+- bearerAuth: []
+tags:
+- name: Tickets
+  description: Create, list, assign, label, and close conversations.
+paths:
+  /tickets:
+    get:
+      operationId: listTickets
+      tags:
+      - Tickets
+      summary: List all tickets
+      description: Returns all tickets the authenticated user is authorized to see.
+      parameters:
+      - name: page
+        in: query
+        schema:
+          type: integer
+          default: 1
+      - name: status
+        in: query
+        description: Filter by ticket status.
+        schema:
+          type: string
+          enum:
+          - OPEN
+          - ASSIGNED
+          - CLOSED
+          - INVALID
+      - name: contact_id
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: users[]
+        in: query
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+      - name: channels[]
+        in: query
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+      - name: labels[]
+        in: query
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+      - name: last_message_type
+        in: query
+        schema:
+          type: string
+          enum:
+          - INBOUND
+          - OUTBOUND
+      - name: sort
+        in: query
+        schema:
+          type: string
+          default: -date
+      - name: updated_at_gt
+        in: query
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: A paginated list of tickets.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TicketList'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+    post:
+      operationId: createTicket
+      tags:
+      - Tickets
+      summary: Create a ticket
+      description: Creates a new ticket on a channel for a given contact identifier.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTicketRequest'
+      responses:
+        '201':
+          description: The created ticket.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ticket'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+  /tickets/{ticket_id}/assign:
+    patch:
+      operationId: assignTicket
+      tags:
+      - Tickets
+      summary: Assign a ticket
+      description: Assigns a ticket to a user and/or a team.
+      parameters:
+      - $ref: '#/components/parameters/TicketId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssignTicketRequest'
+      responses:
+        '200':
+          description: The updated ticket.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ticket'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+  /tickets/{ticket_id}/close:
+    patch:
+      operationId: closeTicket
+      tags:
+      - Tickets
+      summary: Close a ticket
+      description: Marks a ticket as closed.
+      parameters:
+      - $ref: '#/components/parameters/TicketId'
+      responses:
+        '200':
+          description: The closed ticket.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ticket'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        email:
+          type: string
+        is_admin:
+          type: boolean
+    AssignTicketRequest:
+      type: object
+      properties:
+        user_id:
+          type: integer
+          format: int32
+        team_id:
+          type: integer
+          format: int32
+    TicketList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Ticket'
+        meta:
+          $ref: '#/components/schemas/PaginationMeta'
+    Ticket:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        subject:
+          type: string
+        status:
+          type: string
+          enum:
+          - OPEN
+          - ASSIGNED
+          - CLOSED
+          - INVALID
+        contact:
+          $ref: '#/components/schemas/Contact'
+        channel:
+          $ref: '#/components/schemas/Channel'
+        assignee:
+          $ref: '#/components/schemas/User'
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    Channel:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        type:
+          type: string
+          description: Channel type, e.g. EMAIL, WA_BUSINESS, CHAT, VOIP, SMS.
+    Contact:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        identifier:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+    PaginationMeta:
+      type: object
+      properties:
+        current_page:
+          type: integer
+        last_page:
+          type: integer
+        per_page:
+          type: integer
+        total:
+          type: integer
+    CreateTicketRequest:
+      type: object
+      required:
+      - channel_id
+      - contact_identifier
+      properties:
+        channel_id:
+          type: integer
+          format: int32
+          description: The channel the ticket should be opened on.
+        contact_identifier:
+          type: string
+          description: Phone number, email, or other identifier for the contact.
+        subject:
+          type: string
+        delegate_to_user_id:
+          type: integer
+          format: int32
+        delegate_to_team_id:
+          type: integer
+          format: int32
+  parameters:
+    TicketId:
+      name: ticket_id
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int32
+  responses:
+    TooManyRequests:
+      description: Rate limit exceeded (120 requests per minute per token). Honor the Retry-After and X-RateLimit-Reset response headers.
+      headers:
+        Retry-After:
+          schema:
+            type: integer
+          description: Seconds to wait before retrying.
+        X-RateLimit-Reset:
+          schema:
+            type: integer
+          description: Unix timestamp when the limit resets.
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Personal access token generated in the Trengo account, sent as `Authorization: Bearer {TOKEN}`.'
