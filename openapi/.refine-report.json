@@ -1,0 +1,28 @@
+{
+  "provider": "trengo",
+  "sources": [
+    "trengo-channels-api-openapi.yml",
+    "trengo-contacts-api-openapi.yml",
+    "trengo-labels-and-custom-fields-api-openapi.yml",
+    "trengo-messages-api-openapi.yml",
+    "trengo-teams-and-users-api-openapi.yml",
+    "trengo-tickets-api-openapi.yml",
+    "trengo-webhooks-api-openapi.yml",
+    "trengo-whatsapp-api-openapi.yml"
+  ],
+  "outputs": [
+    "trengo-channels-api-openapi.yml",
+    "trengo-contacts-api-openapi.yml",
+    "trengo-labels-and-custom-fields-api-openapi.yml",
+    "trengo-messages-api-openapi.yml",
+    "trengo-teams-and-users-api-openapi.yml",
+    "trengo-tickets-api-openapi.yml",
+    "trengo-webhooks-api-openapi.yml",
+    "trengo-whatsapp-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
