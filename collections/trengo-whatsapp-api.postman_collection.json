@@ -1,0 +1,202 @@
+{
+  "item": [
+    {
+      "id": "95c81c8f-bf97-4217-95d2-591d14e684f4",
+      "name": "WhatsApp",
+      "description": {
+        "content": "Send approved WhatsApp Business templates.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a97bae88-6cdd-4b0d-b850-11e52a74d5e1",
+          "name": "Send a WhatsApp template",
+          "request": {
+            "name": "Send a WhatsApp template",
+            "description": {
+              "content": "Sends a pre-approved WhatsApp Business message template to a contact on a WhatsApp channel.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "whatsapp",
+                "messages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"recipient_phone_number\": \"<string>\",\n  \"hsm_id\": \"<integer>\",\n  \"channel_id\": \"<integer>\",\n  \"params\": [\n    {\n      \"type\": \"<string>\",\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fcc999b7-b53c-4aaf-9672-45fc4a01c2a2",
+              "name": "The sent template message.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "whatsapp",
+                    "messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"recipient_phone_number\": \"<string>\",\n  \"hsm_id\": \"<integer>\",\n  \"channel_id\": \"<integer>\",\n  \"params\": [\n    {\n      \"type\": \"<string>\",\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 2123,\n  \"ticket_id\": 2195,\n  \"body\": \"string\",\n  \"type\": \"OUTBOUND\",\n  \"attachments\": [\n    {\n      \"url\": \"string\",\n      \"filename\": \"string\"\n    },\n    {\n      \"url\": \"string\",\n      \"filename\": \"string\"\n    }\n  ],\n  \"created_at\": \"1949-07-24T13:45:12.297Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "105d8381-8f48-4455-8440-dcc023ec2714",
+              "name": "Rate limit exceeded (120 requests per minute per token). Honor the Retry-After and X-RateLimit-Reset response headers.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "whatsapp",
+                    "messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"recipient_phone_number\": \"<string>\",\n  \"hsm_id\": \"<integer>\",\n  \"channel_id\": \"<integer>\",\n  \"params\": [\n    {\n      \"type\": \"<string>\",\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Seconds to wait before retrying.",
+                  "key": "Retry-After",
+                  "value": "8012"
+                },
+                {
+                  "disabled": false,
+                  "description": "Unix timestamp when the limit resets.",
+                  "key": "X-RateLimit-Reset",
+                  "value": "8012"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.trengo.com/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b25d78b5-8231-4c9e-b7db-4f2c438f35bf",
+    "name": "Trengo Channels WhatsApp API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for the Trengo omnichannel customer-engagement platform. Manage tickets (conversations), contacts and profiles, messages, channels, teams and users, labels and custom fields, webhooks, and outbound WhatsApp templates across email, WhatsApp, live chat, voice, SMS, and social channels. All requests authenticate with a personal access token sent as an HTTP Bearer token.\n\nContact Support:\n Name: Trengo Support",
+      "type": "text/plain"
+    }
+  }
+}

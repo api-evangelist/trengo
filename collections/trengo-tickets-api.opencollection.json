@@ -1,0 +1,138 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Trengo Channels Tickets API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tickets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all tickets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.trengo.com/api/v2/tickets",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter by ticket status."
+              },
+              {
+                "name": "contact_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "users[]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "channels[]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "labels[]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "last_message_type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updated_at_gt",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns all tickets the authenticated user is authorized to see."
+        },
+        {
+          "info": {
+            "name": "Create a ticket",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.trengo.com/api/v2/tickets",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new ticket on a channel for a given contact identifier."
+        },
+        {
+          "info": {
+            "name": "Assign a ticket",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://app.trengo.com/api/v2/tickets/:ticket_id/assign",
+            "params": [
+              {
+                "name": "ticket_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Assigns a ticket to a user and/or a team."
+        },
+        {
+          "info": {
+            "name": "Close a ticket",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://app.trengo.com/api/v2/tickets/:ticket_id/close",
+            "params": [
+              {
+                "name": "ticket_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Marks a ticket as closed."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

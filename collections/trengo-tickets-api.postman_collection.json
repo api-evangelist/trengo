@@ -1,0 +1,835 @@
+{
+  "item": [
+    {
+      "id": "5dd3df65-9b84-4860-8ad2-248c4cbdeae7",
+      "name": "Tickets",
+      "description": {
+        "content": "Create, list, assign, label, and close conversations.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b9ca3035-2102-4c85-9486-961c914659c9",
+          "name": "List all tickets",
+          "request": {
+            "name": "List all tickets",
+            "description": {
+              "content": "Returns all tickets the authenticated user is authorized to see.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tickets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Filter by ticket status."
+                },
+                {
+                  "disabled": false,
+                  "key": "contact_id",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "users[]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "users[]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "channels[]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "channels[]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "labels[]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "labels[]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "last_message_type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "-date"
+                },
+                {
+                  "disabled": false,
+                  "key": "updated_at_gt",
+                  "value": "<dateTime>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4c5e2031-7206-40fd-87e4-84fe3a15c608",
+              "name": "A paginated list of tickets.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tickets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "contact_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "users[]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "users[]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "channels[]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "channels[]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "labels[]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "labels[]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "last_message_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "-date"
+                    },
+                    {
+                      "key": "updated_at_gt",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 9691,\n      \"subject\": \"string\",\n      \"status\": \"INVALID\",\n      \"contact\": {\n        \"id\": 2372,\n        \"name\": \"string\",\n        \"identifier\": \"string\",\n        \"email\": \"string\",\n        \"phone\": \"string\",\n        \"created_at\": \"1970-01-02T14:53:50.145Z\"\n      },\n      \"channel\": {\n        \"id\": 4722,\n        \"name\": \"string\",\n        \"type\": \"string\"\n      },\n      \"assignee\": {\n        \"id\": 553,\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"is_admin\": false\n      },\n      \"created_at\": \"1956-01-16T08:28:14.261Z\",\n      \"updated_at\": \"2004-04-05T04:43:58.508Z\"\n    },\n    {\n      \"id\": 7609,\n      \"subject\": \"string\",\n      \"status\": \"ASSIGNED\",\n      \"contact\": {\n        \"id\": 9547,\n        \"name\": \"string\",\n        \"identifier\": \"string\",\n        \"email\": \"string\",\n        \"phone\": \"string\",\n        \"created_at\": \"2000-07-26T08:10:47.946Z\"\n      },\n      \"channel\": {\n        \"id\": 7245,\n        \"name\": \"string\",\n        \"type\": \"string\"\n      },\n      \"assignee\": {\n        \"id\": 2157,\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"is_admin\": false\n      },\n      \"created_at\": \"1993-05-26T13:19:58.292Z\",\n      \"updated_at\": \"1956-09-14T12:47:31.731Z\"\n    }\n  ],\n  \"meta\": {\n    \"current_page\": 9900,\n    \"last_page\": 4786,\n    \"per_page\": 6515,\n    \"total\": 4745\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "184980ed-1c84-4166-a3a6-006dfe797228",
+              "name": "Rate limit exceeded (120 requests per minute per token). Honor the Retry-After and X-RateLimit-Reset response headers.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tickets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "contact_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "users[]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "users[]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "channels[]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "channels[]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "labels[]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "labels[]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "last_message_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "-date"
+                    },
+                    {
+                      "key": "updated_at_gt",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Seconds to wait before retrying.",
+                  "key": "Retry-After",
+                  "value": "2839"
+                },
+                {
+                  "disabled": false,
+                  "description": "Unix timestamp when the limit resets.",
+                  "key": "X-RateLimit-Reset",
+                  "value": "2839"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4a4d17a8-c488-4e44-840c-0eaa2c58cc5f",
+          "name": "Create a ticket",
+          "request": {
+            "name": "Create a ticket",
+            "description": {
+              "content": "Creates a new ticket on a channel for a given contact identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tickets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"channel_id\": \"<integer>\",\n  \"contact_identifier\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"delegate_to_user_id\": \"<integer>\",\n  \"delegate_to_team_id\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e8e84adc-7d2e-4f05-93d8-38a499708f5f",
+              "name": "The created ticket.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tickets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channel_id\": \"<integer>\",\n  \"contact_identifier\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"delegate_to_user_id\": \"<integer>\",\n  \"delegate_to_team_id\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 5136,\n  \"subject\": \"string\",\n  \"status\": \"ASSIGNED\",\n  \"contact\": {\n    \"id\": 340,\n    \"name\": \"string\",\n    \"identifier\": \"string\",\n    \"email\": \"string\",\n    \"phone\": \"string\",\n    \"created_at\": \"2005-10-06T18:31:57.649Z\"\n  },\n  \"channel\": {\n    \"id\": 186,\n    \"name\": \"string\",\n    \"type\": \"string\"\n  },\n  \"assignee\": {\n    \"id\": 4987,\n    \"name\": \"string\",\n    \"email\": \"string\",\n    \"is_admin\": false\n  },\n  \"created_at\": \"1995-07-30T11:53:28.453Z\",\n  \"updated_at\": \"2024-09-18T18:56:46.468Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bbef8817-55b9-4f0b-b548-88a8d2a0c625",
+              "name": "Rate limit exceeded (120 requests per minute per token). Honor the Retry-After and X-RateLimit-Reset response headers.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tickets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channel_id\": \"<integer>\",\n  \"contact_identifier\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"delegate_to_user_id\": \"<integer>\",\n  \"delegate_to_team_id\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Seconds to wait before retrying.",
+                  "key": "Retry-After",
+                  "value": "2839"
+                },
+                {
+                  "disabled": false,
+                  "description": "Unix timestamp when the limit resets.",
+                  "key": "X-RateLimit-Reset",
+                  "value": "2839"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dc355ad2-40df-4ee1-9206-bd4138624ffc",
+          "name": "Assign a ticket",
+          "request": {
+            "name": "Assign a ticket",
+            "description": {
+              "content": "Assigns a ticket to a user and/or a team.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tickets",
+                ":ticket_id",
+                "assign"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "ticket_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": \"<integer>\",\n  \"team_id\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a86c0aaa-e7a9-4fcd-ab51-25eb1f687add",
+              "name": "The updated ticket.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tickets",
+                    ":ticket_id",
+                    "assign"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "ticket_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user_id\": \"<integer>\",\n  \"team_id\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 5136,\n  \"subject\": \"string\",\n  \"status\": \"ASSIGNED\",\n  \"contact\": {\n    \"id\": 340,\n    \"name\": \"string\",\n    \"identifier\": \"string\",\n    \"email\": \"string\",\n    \"phone\": \"string\",\n    \"created_at\": \"2005-10-06T18:31:57.649Z\"\n  },\n  \"channel\": {\n    \"id\": 186,\n    \"name\": \"string\",\n    \"type\": \"string\"\n  },\n  \"assignee\": {\n    \"id\": 4987,\n    \"name\": \"string\",\n    \"email\": \"string\",\n    \"is_admin\": false\n  },\n  \"created_at\": \"1995-07-30T11:53:28.453Z\",\n  \"updated_at\": \"2024-09-18T18:56:46.468Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "60b4498f-c9b5-4960-a700-0b3aac976043",
+              "name": "Rate limit exceeded (120 requests per minute per token). Honor the Retry-After and X-RateLimit-Reset response headers.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tickets",
+                    ":ticket_id",
+                    "assign"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "ticket_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user_id\": \"<integer>\",\n  \"team_id\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Seconds to wait before retrying.",
+                  "key": "Retry-After",
+                  "value": "2839"
+                },
+                {
+                  "disabled": false,
+                  "description": "Unix timestamp when the limit resets.",
+                  "key": "X-RateLimit-Reset",
+                  "value": "2839"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "21cccd2c-e6e8-430a-b3dc-ece5428d1c83",
+          "name": "Close a ticket",
+          "request": {
+            "name": "Close a ticket",
+            "description": {
+              "content": "Marks a ticket as closed.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tickets",
+                ":ticket_id",
+                "close"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "ticket_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c38d702d-9cf0-448c-a990-7d1e67afbc95",
+              "name": "The closed ticket.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tickets",
+                    ":ticket_id",
+                    "close"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "ticket_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 5136,\n  \"subject\": \"string\",\n  \"status\": \"ASSIGNED\",\n  \"contact\": {\n    \"id\": 340,\n    \"name\": \"string\",\n    \"identifier\": \"string\",\n    \"email\": \"string\",\n    \"phone\": \"string\",\n    \"created_at\": \"2005-10-06T18:31:57.649Z\"\n  },\n  \"channel\": {\n    \"id\": 186,\n    \"name\": \"string\",\n    \"type\": \"string\"\n  },\n  \"assignee\": {\n    \"id\": 4987,\n    \"name\": \"string\",\n    \"email\": \"string\",\n    \"is_admin\": false\n  },\n  \"created_at\": \"1995-07-30T11:53:28.453Z\",\n  \"updated_at\": \"2024-09-18T18:56:46.468Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "311dd4a8-52a6-4654-87ac-bdcd696bce18",
+              "name": "Rate limit exceeded (120 requests per minute per token). Honor the Retry-After and X-RateLimit-Reset response headers.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tickets",
+                    ":ticket_id",
+                    "close"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "ticket_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Seconds to wait before retrying.",
+                  "key": "Retry-After",
+                  "value": "2839"
+                },
+                {
+                  "disabled": false,
+                  "description": "Unix timestamp when the limit resets.",
+                  "key": "X-RateLimit-Reset",
+                  "value": "2839"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.trengo.com/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5f8d0b47-ac8f-405e-8d0f-325bf1152cd6",
+    "name": "Trengo Channels Tickets API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for the Trengo omnichannel customer-engagement platform. Manage tickets (conversations), contacts and profiles, messages, channels, teams and users, labels and custom fields, webhooks, and outbound WhatsApp templates across email, WhatsApp, live chat, voice, SMS, and social channels. All requests authenticate with a personal access token sent as an HTTP Bearer token.\n\nContact Support:\n Name: Trengo Support",
+      "type": "text/plain"
+    }
+  }
+}

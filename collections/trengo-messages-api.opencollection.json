@@ -1,0 +1,102 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Trengo Channels Messages API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Messages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all messages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.trengo.com/api/v2/tickets/:ticket_id/messages",
+            "params": [
+              {
+                "name": "ticket_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns all messages for the given ticket."
+        },
+        {
+          "info": {
+            "name": "Send a ticket message",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.trengo.com/api/v2/tickets/:ticket_id/messages",
+            "params": [
+              {
+                "name": "ticket_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sends an outbound text message on the ticket's channel."
+        },
+        {
+          "info": {
+            "name": "Send a ticket media message",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.trengo.com/api/v2/tickets/:ticket_id/messages/media",
+            "params": [
+              {
+                "name": "ticket_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "body",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Sends an outbound message with one or more media attachments."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

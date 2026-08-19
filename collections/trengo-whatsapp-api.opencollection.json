@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Trengo Channels WhatsApp API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "WhatsApp",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Send a WhatsApp template",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.trengo.com/api/v2/whatsapp/messages",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sends a pre-approved WhatsApp Business message template to a contact on a WhatsApp channel."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
