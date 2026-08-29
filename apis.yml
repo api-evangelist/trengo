@@ -249,6 +249,9 @@ apis:
   - type: Documentation
     url: https://developers.trengo.com/docs/configuration
 common:
+- type: CapabilityMap
+  url: capabilities/trengo-capability-edges.yml
+  name: Trengo Business Capability Map
 - type: AgenticAccess
   url: agentic-access/trengo-agentic-access.yml
 - type: TrustCenter
