@@ -225,16 +225,16 @@ apis:
     url: https://developers.trengo.com/reference/list-all-messages
   - type: Documentation
     url: https://developers.trengo.com/docs/configuration
-- aid: trengo:trengo-whatsapp-api
-  name: Trengo WhatsApp API
+- aid: trengo:trengo-whats-app-api
+  name: Trengo Whats App API
   description: Send approved WhatsApp Business templates.
   humanURL: https://developers.trengo.com/reference/list-all-tickets
   baseURL: https://app.trengo.com/api/v2
   tags:
-  - WhatsApp
+  - Whats App
   properties:
   - type: OpenAPI
-    url: openapi/trengo-whatsapp-api-openapi.yml
+    url: openapi/trengo-whats-app-api-openapi.yml
   - type: Documentation
     url: https://developers.trengo.com/docs/welcome
   - type: APIReference
