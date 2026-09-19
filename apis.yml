@@ -231,6 +231,8 @@ apis:
   humanURL: https://developers.trengo.com/reference/list-all-tickets
   baseURL: https://app.trengo.com/api/v2
   tags:
+  - WhatsApp
+  tags_raw:
   - Whats App
   properties:
   - type: OpenAPI
