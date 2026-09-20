@@ -252,6 +252,8 @@ apis:
   - type: Documentation
     url: https://developers.trengo.com/docs/configuration
 common:
+- type: Pricing
+  url: https://trengo.com/prices
 - type: CapabilityMap
   url: capabilities/trengo-capability-edges.yml
   name: Trengo Business Capability Map
