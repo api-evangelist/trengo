@@ -1,0 +1,29 @@
+# Front Door AI Index — trengo — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: trengo
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: trengo.com
+  final_host: trengo.com
+  ownership: own
+  owner: trengo
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 30
+  host_score: 30
+  density: 36.54
+  words: 821
+  tiers:
+    agentic: 10
+    core: 20
+    model: 0
+  ambiguous: 12
+  top_terms:
+    AI: 20
+    agent: 11
+    AI agent: 9
+    prompts: 1
+    smart: 1

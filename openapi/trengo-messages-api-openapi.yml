@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Trengo Channels Messages API
+  title: Trengo Messages API
   description: REST API for the Trengo omnichannel customer-engagement platform. Manage tickets (conversations), contacts and profiles, messages, channels, teams and users, labels and custom fields, webhooks, and outbound WhatsApp templates across email, WhatsApp, live chat, voice, SMS, and social channels. All requests authenticate with a personal access token sent as an HTTP Bearer token.
   termsOfService: https://trengo.com/terms-conditions
   contact:
@@ -94,26 +94,6 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
 components:
   schemas:
-    MessageList:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Message'
-        meta:
-          $ref: '#/components/schemas/PaginationMeta'
-    SendMessageRequest:
-      type: object
-      required:
-      - body
-      properties:
-        body:
-          type: string
-          description: The message text to send.
-        internal_note:
-          type: boolean
-          description: When true, posts an internal note instead of an outbound message.
     PaginationMeta:
       type: object
       properties:
@@ -125,6 +105,26 @@ components:
           type: integer
         total:
           type: integer
+    SendMessageRequest:
+      type: object
+      required:
+      - body
+      properties:
+        body:
+          type: string
+          description: The message text to send.
+        internal_note:
+          type: boolean
+          description: When true, posts an internal note instead of an outbound message.
+    MessageList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Message'
+        meta:
+          $ref: '#/components/schemas/PaginationMeta'
     Message:
       type: object
       properties:

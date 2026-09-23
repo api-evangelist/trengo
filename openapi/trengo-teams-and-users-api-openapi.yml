@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Trengo Channels Teams and Users API
+  title: Trengo Teams and Users API
   description: REST API for the Trengo omnichannel customer-engagement platform. Manage tickets (conversations), contacts and profiles, messages, channels, teams and users, labels and custom fields, webhooks, and outbound WhatsApp templates across email, WhatsApp, live chat, voice, SMS, and social channels. All requests authenticate with a personal access token sent as an HTTP Bearer token.
   termsOfService: https://trengo.com/terms-conditions
   contact:
@@ -69,27 +69,6 @@ paths:
         '429':
           $ref: '#/components/responses/TooManyRequests'
 components:
-  schemas:
-    User:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        name:
-          type: string
-        email:
-          type: string
-        is_admin:
-          type: boolean
-    Team:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        name:
-          type: string
   responses:
     TooManyRequests:
       description: Rate limit exceeded (120 requests per minute per token). Honor the Retry-After and X-RateLimit-Reset response headers.
@@ -102,6 +81,27 @@ components:
           schema:
             type: integer
           description: Unix timestamp when the limit resets.
+  schemas:
+    Team:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        email:
+          type: string
+        is_admin:
+          type: boolean
   securitySchemes:
     bearerAuth:
       type: http

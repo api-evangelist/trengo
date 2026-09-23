@@ -1,14 +1,7 @@
 {
   "provider": "trengo",
   "sources": [
-    "trengo-channels-api-openapi.yml",
-    "trengo-contacts-api-openapi.yml",
-    "trengo-labels-and-custom-fields-api-openapi.yml",
-    "trengo-messages-api-openapi.yml",
-    "trengo-teams-and-users-api-openapi.yml",
-    "trengo-tickets-api-openapi.yml",
-    "trengo-webhooks-api-openapi.yml",
-    "trengo-whatsapp-api-openapi.yml"
+    "_original/trengo-openapi.yml"
   ],
   "outputs": [
     "trengo-channels-api-openapi.yml",
@@ -20,9 +13,25 @@
     "trengo-webhooks-api-openapi.yml",
     "trengo-whatsapp-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 1 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "trengo-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "superseded outputs removed: trengo-whats-app-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 8 total)"
+  ],
+  "skipped": [
+    "trengo-channels-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "trengo-contacts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "trengo-labels-and-custom-fields-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "trengo-messages-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "trengo-teams-and-users-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "trengo-tickets-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "trengo-webhooks-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "trengo-whats-app-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
