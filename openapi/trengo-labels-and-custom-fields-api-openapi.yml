@@ -85,6 +85,17 @@ components:
       schema:
         type: integer
         format: int32
+  schemas:
+    CustomField:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        title:
+          type: string
+        type:
+          type: string
   responses:
     TooManyRequests:
       description: Rate limit exceeded (120 requests per minute per token). Honor the Retry-After and X-RateLimit-Reset response headers.
@@ -97,17 +108,6 @@ components:
           schema:
             type: integer
           description: Unix timestamp when the limit resets.
-  schemas:
-    CustomField:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        title:
-          type: string
-        type:
-          type: string
   securitySchemes:
     bearerAuth:
       type: http

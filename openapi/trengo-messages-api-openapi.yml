@@ -93,6 +93,18 @@ paths:
         '429':
           $ref: '#/components/responses/TooManyRequests'
 components:
+  responses:
+    TooManyRequests:
+      description: Rate limit exceeded (120 requests per minute per token). Honor the Retry-After and X-RateLimit-Reset response headers.
+      headers:
+        Retry-After:
+          schema:
+            type: integer
+          description: Seconds to wait before retrying.
+        X-RateLimit-Reset:
+          schema:
+            type: integer
+          description: Unix timestamp when the limit resets.
   schemas:
     PaginationMeta:
       type: object
@@ -105,17 +117,6 @@ components:
           type: integer
         total:
           type: integer
-    SendMessageRequest:
-      type: object
-      required:
-      - body
-      properties:
-        body:
-          type: string
-          description: The message text to send.
-        internal_note:
-          type: boolean
-          description: When true, posts an internal note instead of an outbound message.
     MessageList:
       type: object
       properties:
@@ -153,6 +154,17 @@ components:
         created_at:
           type: string
           format: date-time
+    SendMessageRequest:
+      type: object
+      required:
+      - body
+      properties:
+        body:
+          type: string
+          description: The message text to send.
+        internal_note:
+          type: boolean
+          description: When true, posts an internal note instead of an outbound message.
   parameters:
     TicketId:
       name: ticket_id
@@ -161,18 +173,6 @@ components:
       schema:
         type: integer
         format: int32
-  responses:
-    TooManyRequests:
-      description: Rate limit exceeded (120 requests per minute per token). Honor the Retry-After and X-RateLimit-Reset response headers.
-      headers:
-        Retry-After:
-          schema:
-            type: integer
-          description: Seconds to wait before retrying.
-        X-RateLimit-Reset:
-          schema:
-            type: integer
-          description: Unix timestamp when the limit resets.
   securitySchemes:
     bearerAuth:
       type: http

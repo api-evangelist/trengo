@@ -37,18 +37,6 @@ paths:
         '429':
           $ref: '#/components/responses/TooManyRequests'
 components:
-  responses:
-    TooManyRequests:
-      description: Rate limit exceeded (120 requests per minute per token). Honor the Retry-After and X-RateLimit-Reset response headers.
-      headers:
-        Retry-After:
-          schema:
-            type: integer
-          description: Seconds to wait before retrying.
-        X-RateLimit-Reset:
-          schema:
-            type: integer
-          description: Unix timestamp when the limit resets.
   schemas:
     Channel:
       type: object
@@ -61,6 +49,18 @@ components:
         type:
           type: string
           description: Channel type, e.g. EMAIL, WA_BUSINESS, CHAT, VOIP, SMS.
+  responses:
+    TooManyRequests:
+      description: Rate limit exceeded (120 requests per minute per token). Honor the Retry-After and X-RateLimit-Reset response headers.
+      headers:
+        Retry-After:
+          schema:
+            type: integer
+          description: Seconds to wait before retrying.
+        X-RateLimit-Reset:
+          schema:
+            type: integer
+          description: Unix timestamp when the limit resets.
   securitySchemes:
     bearerAuth:
       type: http

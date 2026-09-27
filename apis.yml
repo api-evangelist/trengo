@@ -41,7 +41,7 @@ tags:
 - Shared Inbox
 - Messaging
 - WhatsApp
-- Customer-Support
+- Customer Support
 tags_raw:
 - Customer Engagement
 - Omnichannel
@@ -49,6 +49,7 @@ tags_raw:
 - Messaging
 - WhatsApp
 - Customer Support
+- Customer-Support
 created: '2026-06-20'
 modified: '2026-06-20'
 specificationVersion: '0.23'
@@ -181,6 +182,8 @@ apis:
   humanURL: https://developers.trengo.com/reference/list-all-tickets
   baseURL: https://app.trengo.com/api/v2
   tags:
+  - Ticketing
+  tags_raw:
   - Tickets
   properties:
   - type: OpenAPI
@@ -231,8 +234,6 @@ apis:
   humanURL: https://developers.trengo.com/reference/list-all-tickets
   baseURL: https://app.trengo.com/api/v2
   tags:
-  - WhatsApp
-  tags_raw:
   - Whats App
   properties:
   - type: OpenAPI
