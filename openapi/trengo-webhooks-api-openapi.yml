@@ -74,17 +74,6 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
 components:
   schemas:
-    CreateWebhookRequest:
-      type: object
-      required:
-      - url
-      properties:
-        url:
-          type: string
-          format: uri
-          description: HTTPS endpoint that receives event callbacks.
-        name:
-          type: string
     Webhook:
       type: object
       properties:
@@ -94,6 +83,17 @@ components:
         url:
           type: string
           format: uri
+        name:
+          type: string
+    CreateWebhookRequest:
+      type: object
+      required:
+      - url
+      properties:
+        url:
+          type: string
+          format: uri
+          description: HTTPS endpoint that receives event callbacks.
         name:
           type: string
   parameters:

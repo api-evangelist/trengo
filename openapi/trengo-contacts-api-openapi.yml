@@ -115,34 +115,6 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
 components:
   schemas:
-    Contact:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        name:
-          type: string
-        identifier:
-          type: string
-        email:
-          type: string
-        phone:
-          type: string
-        created_at:
-          type: string
-          format: date-time
-    PaginationMeta:
-      type: object
-      properties:
-        current_page:
-          type: integer
-        last_page:
-          type: integer
-        per_page:
-          type: integer
-        total:
-          type: integer
     CreateContactRequest:
       type: object
       required:
@@ -162,6 +134,34 @@ components:
           type: string
         phone:
           type: string
+    PaginationMeta:
+      type: object
+      properties:
+        current_page:
+          type: integer
+        last_page:
+          type: integer
+        per_page:
+          type: integer
+        total:
+          type: integer
+    Contact:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        identifier:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+        created_at:
+          type: string
+          format: date-time
     ContactList:
       type: object
       properties:
@@ -171,6 +171,14 @@ components:
             $ref: '#/components/schemas/Contact'
         meta:
           $ref: '#/components/schemas/PaginationMeta'
+  parameters:
+    ContactId:
+      name: contact_id
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int32
   responses:
     TooManyRequests:
       description: Rate limit exceeded (120 requests per minute per token). Honor the Retry-After and X-RateLimit-Reset response headers.
@@ -183,14 +191,6 @@ components:
           schema:
             type: integer
           description: Unix timestamp when the limit resets.
-  parameters:
-    ContactId:
-      name: contact_id
-      in: path
-      required: true
-      schema:
-        type: integer
-        format: int32
   securitySchemes:
     bearerAuth:
       type: http

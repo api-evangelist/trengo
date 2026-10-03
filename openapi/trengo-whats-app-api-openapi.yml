@@ -39,47 +39,7 @@ paths:
         '429':
           $ref: '#/components/responses/TooManyRequests'
 components:
-  responses:
-    TooManyRequests:
-      description: Rate limit exceeded (120 requests per minute per token). Honor the Retry-After and X-RateLimit-Reset response headers.
-      headers:
-        Retry-After:
-          schema:
-            type: integer
-          description: Seconds to wait before retrying.
-        X-RateLimit-Reset:
-          schema:
-            type: integer
-          description: Unix timestamp when the limit resets.
   schemas:
-    Message:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        ticket_id:
-          type: integer
-          format: int32
-        body:
-          type: string
-        type:
-          type: string
-          enum:
-          - INBOUND
-          - OUTBOUND
-        attachments:
-          type: array
-          items:
-            type: object
-            properties:
-              url:
-                type: string
-              filename:
-                type: string
-        created_at:
-          type: string
-          format: date-time
     SendWhatsAppTemplateRequest:
       type: object
       required:
@@ -109,6 +69,46 @@ components:
                 type: string
               value:
                 type: string
+    Message:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        ticket_id:
+          type: integer
+          format: int32
+        body:
+          type: string
+        type:
+          type: string
+          enum:
+          - INBOUND
+          - OUTBOUND
+        attachments:
+          type: array
+          items:
+            type: object
+            properties:
+              url:
+                type: string
+              filename:
+                type: string
+        created_at:
+          type: string
+          format: date-time
+  responses:
+    TooManyRequests:
+      description: Rate limit exceeded (120 requests per minute per token). Honor the Retry-After and X-RateLimit-Reset response headers.
+      headers:
+        Retry-After:
+          schema:
+            type: integer
+          description: Seconds to wait before retrying.
+        X-RateLimit-Reset:
+          schema:
+            type: integer
+          description: Unix timestamp when the limit resets.
   securitySchemes:
     bearerAuth:
       type: http

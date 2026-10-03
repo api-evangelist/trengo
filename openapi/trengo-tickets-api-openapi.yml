@@ -156,32 +156,6 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
 components:
   schemas:
-    Contact:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        name:
-          type: string
-        identifier:
-          type: string
-        email:
-          type: string
-        phone:
-          type: string
-        created_at:
-          type: string
-          format: date-time
-    AssignTicketRequest:
-      type: object
-      properties:
-        user_id:
-          type: integer
-          format: int32
-        team_id:
-          type: integer
-          format: int32
     Channel:
       type: object
       properties:
@@ -193,27 +167,6 @@ components:
         type:
           type: string
           description: Channel type, e.g. EMAIL, WA_BUSINESS, CHAT, VOIP, SMS.
-    CreateTicketRequest:
-      type: object
-      required:
-      - channel_id
-      - contact_identifier
-      properties:
-        channel_id:
-          type: integer
-          format: int32
-          description: The channel the ticket should be opened on.
-        contact_identifier:
-          type: string
-          description: Phone number, email, or other identifier for the contact.
-        subject:
-          type: string
-        delegate_to_user_id:
-          type: integer
-          format: int32
-        delegate_to_team_id:
-          type: integer
-          format: int32
     PaginationMeta:
       type: object
       properties:
@@ -225,15 +178,6 @@ components:
           type: integer
         total:
           type: integer
-    TicketList:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Ticket'
-        meta:
-          $ref: '#/components/schemas/PaginationMeta'
     Ticket:
       type: object
       properties:
@@ -261,6 +205,27 @@ components:
         updated_at:
           type: string
           format: date-time
+    CreateTicketRequest:
+      type: object
+      required:
+      - channel_id
+      - contact_identifier
+      properties:
+        channel_id:
+          type: integer
+          format: int32
+          description: The channel the ticket should be opened on.
+        contact_identifier:
+          type: string
+          description: Phone number, email, or other identifier for the contact.
+        subject:
+          type: string
+        delegate_to_user_id:
+          type: integer
+          format: int32
+        delegate_to_team_id:
+          type: integer
+          format: int32
     User:
       type: object
       properties:
@@ -273,6 +238,49 @@ components:
           type: string
         is_admin:
           type: boolean
+    AssignTicketRequest:
+      type: object
+      properties:
+        user_id:
+          type: integer
+          format: int32
+        team_id:
+          type: integer
+          format: int32
+    TicketList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Ticket'
+        meta:
+          $ref: '#/components/schemas/PaginationMeta'
+    Contact:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        identifier:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+  parameters:
+    TicketId:
+      name: ticket_id
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int32
   responses:
     TooManyRequests:
       description: Rate limit exceeded (120 requests per minute per token). Honor the Retry-After and X-RateLimit-Reset response headers.
@@ -285,14 +293,6 @@ components:
           schema:
             type: integer
           description: Unix timestamp when the limit resets.
-  parameters:
-    TicketId:
-      name: ticket_id
-      in: path
-      required: true
-      schema:
-        type: integer
-        format: int32
   securitySchemes:
     bearerAuth:
       type: http

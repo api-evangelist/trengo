@@ -70,6 +70,14 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
 components:
   schemas:
+    Team:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
     User:
       type: object
       properties:
@@ -82,14 +90,6 @@ components:
           type: string
         is_admin:
           type: boolean
-    Team:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        name:
-          type: string
   responses:
     TooManyRequests:
       description: Rate limit exceeded (120 requests per minute per token). Honor the Retry-After and X-RateLimit-Reset response headers.

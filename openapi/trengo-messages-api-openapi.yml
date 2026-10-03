@@ -93,18 +93,6 @@ paths:
         '429':
           $ref: '#/components/responses/TooManyRequests'
 components:
-  responses:
-    TooManyRequests:
-      description: Rate limit exceeded (120 requests per minute per token). Honor the Retry-After and X-RateLimit-Reset response headers.
-      headers:
-        Retry-After:
-          schema:
-            type: integer
-          description: Seconds to wait before retrying.
-        X-RateLimit-Reset:
-          schema:
-            type: integer
-          description: Unix timestamp when the limit resets.
   schemas:
     PaginationMeta:
       type: object
@@ -117,15 +105,6 @@ components:
           type: integer
         total:
           type: integer
-    MessageList:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Message'
-        meta:
-          $ref: '#/components/schemas/PaginationMeta'
     Message:
       type: object
       properties:
@@ -165,6 +144,15 @@ components:
         internal_note:
           type: boolean
           description: When true, posts an internal note instead of an outbound message.
+    MessageList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Message'
+        meta:
+          $ref: '#/components/schemas/PaginationMeta'
   parameters:
     TicketId:
       name: ticket_id
@@ -173,6 +161,18 @@ components:
       schema:
         type: integer
         format: int32
+  responses:
+    TooManyRequests:
+      description: Rate limit exceeded (120 requests per minute per token). Honor the Retry-After and X-RateLimit-Reset response headers.
+      headers:
+        Retry-After:
+          schema:
+            type: integer
+          description: Seconds to wait before retrying.
+        X-RateLimit-Reset:
+          schema:
+            type: integer
+          description: Unix timestamp when the limit resets.
   securitySchemes:
     bearerAuth:
       type: http

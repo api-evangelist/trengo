@@ -77,14 +77,6 @@ paths:
         '429':
           $ref: '#/components/responses/TooManyRequests'
 components:
-  parameters:
-    TicketId:
-      name: ticket_id
-      in: path
-      required: true
-      schema:
-        type: integer
-        format: int32
   schemas:
     CustomField:
       type: object
@@ -96,6 +88,14 @@ components:
           type: string
         type:
           type: string
+  parameters:
+    TicketId:
+      name: ticket_id
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int32
   responses:
     TooManyRequests:
       description: Rate limit exceeded (120 requests per minute per token). Honor the Retry-After and X-RateLimit-Reset response headers.
