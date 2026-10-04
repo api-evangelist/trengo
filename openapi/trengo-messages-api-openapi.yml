@@ -105,6 +105,26 @@ components:
           type: integer
         total:
           type: integer
+    MessageList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Message'
+        meta:
+          $ref: '#/components/schemas/PaginationMeta'
+    SendMessageRequest:
+      type: object
+      required:
+      - body
+      properties:
+        body:
+          type: string
+          description: The message text to send.
+        internal_note:
+          type: boolean
+          description: When true, posts an internal note instead of an outbound message.
     Message:
       type: object
       properties:
@@ -133,26 +153,6 @@ components:
         created_at:
           type: string
           format: date-time
-    SendMessageRequest:
-      type: object
-      required:
-      - body
-      properties:
-        body:
-          type: string
-          description: The message text to send.
-        internal_note:
-          type: boolean
-          description: When true, posts an internal note instead of an outbound message.
-    MessageList:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Message'
-        meta:
-          $ref: '#/components/schemas/PaginationMeta'
   parameters:
     TicketId:
       name: ticket_id

@@ -156,17 +156,6 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
 components:
   schemas:
-    Channel:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        name:
-          type: string
-        type:
-          type: string
-          description: Channel type, e.g. EMAIL, WA_BUSINESS, CHAT, VOIP, SMS.
     PaginationMeta:
       type: object
       properties:
@@ -178,6 +167,48 @@ components:
           type: integer
         total:
           type: integer
+    CreateTicketRequest:
+      type: object
+      required:
+      - channel_id
+      - contact_identifier
+      properties:
+        channel_id:
+          type: integer
+          format: int32
+          description: The channel the ticket should be opened on.
+        contact_identifier:
+          type: string
+          description: Phone number, email, or other identifier for the contact.
+        subject:
+          type: string
+        delegate_to_user_id:
+          type: integer
+          format: int32
+        delegate_to_team_id:
+          type: integer
+          format: int32
+    TicketList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Ticket'
+        meta:
+          $ref: '#/components/schemas/PaginationMeta'
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        email:
+          type: string
+        is_admin:
+          type: boolean
     Ticket:
       type: object
       properties:
@@ -205,39 +236,6 @@ components:
         updated_at:
           type: string
           format: date-time
-    CreateTicketRequest:
-      type: object
-      required:
-      - channel_id
-      - contact_identifier
-      properties:
-        channel_id:
-          type: integer
-          format: int32
-          description: The channel the ticket should be opened on.
-        contact_identifier:
-          type: string
-          description: Phone number, email, or other identifier for the contact.
-        subject:
-          type: string
-        delegate_to_user_id:
-          type: integer
-          format: int32
-        delegate_to_team_id:
-          type: integer
-          format: int32
-    User:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        name:
-          type: string
-        email:
-          type: string
-        is_admin:
-          type: boolean
     AssignTicketRequest:
       type: object
       properties:
@@ -247,15 +245,6 @@ components:
         team_id:
           type: integer
           format: int32
-    TicketList:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Ticket'
-        meta:
-          $ref: '#/components/schemas/PaginationMeta'
     Contact:
       type: object
       properties:
@@ -273,6 +262,17 @@ components:
         created_at:
           type: string
           format: date-time
+    Channel:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        type:
+          type: string
+          description: Channel type, e.g. EMAIL, WA_BUSINESS, CHAT, VOIP, SMS.
   parameters:
     TicketId:
       name: ticket_id
