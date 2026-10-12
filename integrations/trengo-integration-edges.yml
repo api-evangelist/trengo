@@ -1,0 +1,515 @@
+generated: '2026-10-12'
+method: searched
+source:
+- https://zapier.com/apps/trengo/integrations
+- https://n8n.io/integrations/trengo/
+checked:
+- https://composio.dev/toolkits/trengo
+- https://monid.ai/tools/trengo
+- https://n8n.io/integrations/trengo/
+- https://zapier.com/apps/trengo/integrations
+summary: null
+marketplace_apps:
+- marketplace: zapier
+  channel: ipaas-listing
+  app: trengo
+  url: https://zapier.com/apps/trengo/integrations
+  external_url: https://trengo.com/
+  partner_tier: BRONZE
+  triggers:
+  - key: inbound_message
+    label: New Inbound Message
+  - key: label_added
+    label: Ticket Label Added
+  - key: note_message
+    label: New Internal Note
+  - key: outbound_message
+    label: New Outbound Message
+  - key: phone_call_ended
+    label: Phone Call Ended
+  - key: phone_call_missed
+    label: Phone Call Missed
+  - key: phone_call_started
+    label: Phone Call Started
+  actions:
+  - key: create_contact
+    label: Create a Contact
+  - key: log_voice_call
+    label: Log a Voice Call
+  - key: send_message
+    label: Send a Message
+  - key: send_whatsapp_template
+    label: Send a WhatsApp Message Template
+  - key: trigger_journey
+    label: Trigger Journey
+  searches:
+  - key: find_contact
+    label: Find a Contact
+- marketplace: n8n
+  channel: open-source-node
+  app: trengo
+  url: https://n8n.io/integrations/trengo/
+  identity: title
+  pair_pages: 68
+  pairs:
+  - trevorio
+  - turbohire
+  - tuskr
+  - tuulio
+  - twake
+  - twilio
+  - twist
+  - twitter
+  - unbounce
+  - unisender
+  - unleashed-software
+  - upkeep
+  - uplead
+  - uproc
+  - uptimerobot
+  - uptimetoolbox
+  - urlscanio
+  - uservoice
+  - venafi-tls-protect-cloud
+  - venafi-tls-protect-datacenter
+  - venly
+  - verifalia
+  - vero
+  - vimeo
+  - virustotal
+  - vivifyscrum
+  - voicit
+  - vonage
+  - vowel
+  - watchsignals
+  - waveline-extract
+  - webex-by-cisco
+  - webflow
+  - webscraperio
+  - wekan
+  - whal3s
+  - whatconverts
+  - whatsapp-business-cloud
+  - wise
+  - wizychat
+  - wonderchat
+  - wondercraft
+  - woocommerce
+  - woodpeckerco
+  - wordpress
+  - workast
+  - workboard
+  - woxo
+  - writesonic
+  - wubook-ratechecker
+  - xero
+  - xtractly
+  - ybug
+  - ycode
+  - yodiz
+  - yourls
+  - youtube
+  - zabbix
+  - zammad
+  - zendesk
+  - zenrows
+  - zoho-books
+  - zoho-crm
+  - zoho-desk
+  - zonka-feedback
+  - zoom
+  - zscaler-zia
+  - zulip
+edges:
+- partner_name: HubSpot
+  partner: hubspot
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/trengo/integrations/hubspot
+  direction: third-party
+  category: Marketing Automation
+  partner_url: http://www.hubspot.com/
+- partner_name: Bigin by Zoho CRM
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/trengo/integrations/bigin
+  direction: third-party
+  category: CRM (Customer Relationship Management)
+  partner_url: https://go.zoho.com/9DS
+- partner_name: Google Sheets
+  partner: google-sheets
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/trengo/integrations/google-sheets
+  direction: third-party
+  category: Google
+  partner_url: http://sheets.google.com/
+- partner_name: Wufoo
+  partner: wufoo
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/trengo/integrations/wufoo
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: https://www.wufoo.com/
+- partner_name: SuperOffice CRM
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/trengo/integrations/superofficecrm
+  direction: third-party
+  category: CRM (Customer Relationship Management)
+  partner_url: https://www.superoffice.com/
+- partner_name: Gmail
+  partner: gmail
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/trengo/integrations/gmail
+  direction: third-party
+  category: Email
+  partner_url: https://mail.google.com/
+- partner_name: Microsoft Dynamics 365 CRM
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/trengo/integrations/microsoft-dynamics-crm
+  direction: third-party
+  category: CRM (Customer Relationship Management)
+  partner_url: https://dynamics.microsoft.com/
+- partner_name: Facebook Lead Ads (for Business admins)
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/trengo/integrations/facebook-lead-ads-beta
+  direction: third-party
+  category: Ads & Conversion
+  partner_url: https://facebook.com/
+- partner_name: Mews
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/trengo/integrations/mews
+  direction: third-party
+  category: Product Management
+  partner_url: https://www.mewssystems.com/
+- partner_name: Tatango
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/trengo/integrations/tatango
+  direction: third-party
+  category: Phone & SMS
+  partner_url: http://www.tatango.com/
+- partner_name: Human in the Loop
+  partner: null
+  partner_match: null
+  partner_candidate: zapier
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/trengo/integrations/human-in-the-loop
+  direction: third-party
+  category: AI Assistants
+  partner_url: https://zapier.com/blog/human-in-the-loop-guide/
+- partner_name: Digistore24
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/trengo/integrations/digistore24
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://www.digistore24.com/
+- partner_name: Aircall
+  partner: aircall
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/trengo/integrations/aircall
+  direction: third-party
+  category: Developer Tools
+  partner_url: https://aircall.io/
+- partner_name: MonkeyLearn
+  partner: monkeylearn
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/trengo/integrations/monkeylearn-legacy
+  direction: third-party
+  category: Analytics
+  partner_url: https://monkeylearn.com/
+- partner_name: Klaviyo
+  partner: klaviyo
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/trengo/integrations/klaviyo
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://www.klaviyo.com/
+- partner_name: Stripe (Legacy)
+  partner: stripe
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/trengo/integrations/stripe-legacy
+  direction: third-party
+  category: Payment Processing
+  partner_url: https://stripe.com/
+- partner_name: WooCommerce
+  partner: woocommerce
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/trengo/integrations/woocommerce
+  direction: third-party
+  category: eCommerce
+  partner_url: https://woocommerce.com/products/woocommerce-zapier/?utm_source=zapier&utm_medium=website&utm_campaign=integration
+- partner_name: Cal.com
+  partner: cal-com
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/trengo/integrations/calcom
+  direction: third-party
+  category: Scheduling & Booking
+  partner_url: http://go.cal.com/zapier
+- partner_name: Podio
+  partner: podio
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/trengo/integrations/podio
+  direction: third-party
+  category: Project Management
+  partner_url: https://podio.com/
+- partner_name: PostgreSQL
+  partner: postgresql
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/trengo/integrations/postgresql
+  direction: third-party
+  category: Databases
+  partner_url: http://www.postgresql.org/
+- partner_name: WebinarFuel
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/trengo/integrations/webinarfuel
+  direction: third-party
+  category: Webinars
+  partner_url: https://www.webinarfuel.com/
+- partner_name: Pointerpro
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/trengo/integrations/pointerpro
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: https://pointerpro.com/
+- partner_name: Vybit Notifications
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/trengo/integrations/vybit-notifications
+  direction: third-party
+  category: Notifications
+  partner_url: https://www.vybit.net/
+- partner_name: Gripp
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/trengo/integrations/gripp
+  direction: third-party
+  category: Project Management
+  partner_url: https://gripp.com/
+- partner_name: ChatGPT (OpenAI)
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/trengo/integrations/chatgpt
+  direction: third-party
+  category: AI Assistants
+  partner_url: https://chat.openai.com/chat
+- partner_name: Xero
+  partner: xero
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/trengo/integrations/xero
+  direction: third-party
+  category: Accounting
+  partner_url: https://xero5440.partnerlinks.io/uvwuuwrxyoi8
+- partner_name: Anthropic (Claude)
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/trengo/integrations/anthropic-claude
+  direction: third-party
+  category: AI Models
+  partner_url: https://www.anthropic.com/
+- partner_name: Housecall Pro
+  partner: housecall-pro
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/trengo/integrations/housecall-pro
+  direction: third-party
+  category: Scheduling & Booking
+  partner_url: https://www.housecallpro.com/
+- partner_name: PayPal
+  partner: paypal
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/trengo/integrations/paypal
+  direction: third-party
+  category: Payment Processing
+  partner_url: https://www.paypal.com/
+- partner_name: Evernote
+  partner: evernote
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/trengo/integrations/evernote
+  direction: third-party
+  category: Notes
+  partner_url: https://evernote.com/
+templates:
+- title: Send new Trengo inbound messages to Slack channels for seamless communication
+  url: https://zapier.com/apps/slack/integrations/trengo/1254665/send-new-trengo-inbound-messages-to-slack-channels-for-seamless-communication
+  apps:
+  - trengo
+  - slack
+- title: Send team chat messagew in Trengo when new feedback in Simplesat is received
+  url: https://zapier.com/apps/simplesat/integrations/trengo/843633/send-team-chat-messagew-in-trengo-when-new-feedback-in-simplesat-is-received
+  apps:
+  - simplesat
+  - trengo
+- title: Add new Trengo inbound messages to Google Sheets as spreadsheet rows
+  url: https://zapier.com/apps/google-sheets/integrations/trengo/1242114/add-new-trengo-inbound-messages-to-google-sheets-as-spreadsheet-rows
+  apps:
+  - trengo
+  - google-sheets
+- title: Send new Trengo inbound messages to Discord channels as channel messages
+  url: https://zapier.com/apps/discord/integrations/trengo/1281510/send-new-trengo-inbound-messages-to-discord-channels-as-channel-messages
+  apps:
+  - trengo
+  - discord
+- title: Create new Trengo contacts from RocketReach leads
+  url: https://zapier.com/apps/rocketreach/integrations/trengo/1282607/create-new-trengo-contacts-from-rocketreach-leads
+  apps:
+  - rocketreach
+  - trengo
+- title: Update Google Sheets rows with new internal Trengo notes
+  url: https://zapier.com/apps/google-sheets/integrations/trengo/1314165/update-google-sheets-rows-with-new-internal-trengo-notes
+  apps:
+  - trengo
+  - google-sheets
+- title: Send new Discord channel messages to Trengo as team chat messages
+  url: https://zapier.com/apps/discord/integrations/trengo/1318125/send-new-discord-channel-messages-to-trengo-as-team-chat-messages
+  apps:
+  - discord
+  - trengo
+- title: Send messages in Trengo when new trigger phrases are spoken in Amazon Alexa
+  url: https://zapier.com/apps/amazon-alexa/integrations/trengo/1325697/send-messages-in-trengo-when-new-trigger-phrases-are-spoken-in-amazon-alexa
+  apps:
+  - amazon-alexa
+  - trengo
+- title: Create new Trengo contacts from new Airtable records
+  url: https://zapier.com/apps/airtable/integrations/trengo/1331183/create-new-trengo-contacts-from-new-airtable-records
+  apps:
+  - airtable
+  - trengo
+- title: Create contacts in Trengo for new rows added in Microsoft Excel
+  url: https://zapier.com/apps/excel/integrations/trengo/1331909/create-contacts-in-trengo-for-new-rows-added-in-microsoft-excel
+  apps:
+  - excel
+  - trengo
+- title: Create whatsapp message templates in Trengo for new Facebook Lead Ads leads
+  url: https://zapier.com/apps/facebook-lead-ads/integrations/trengo/1387964/create-whatsapp-message-templates-in-trengo-for-new-facebook-lead-ads-leads
+  apps:
+  - facebook-lead-ads
+  - trengo
+- title: Create contacts in Trengo for new or updated spreadsheet rows in Google Sheets
+  url: https://zapier.com/apps/google-sheets/integrations/trengo/1390737/create-contacts-in-trengo-for-new-or-updated-spreadsheet-rows-in-google-sheets
+  apps:
+  - google-sheets
+  - trengo
+template_total: 111
