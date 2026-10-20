@@ -7,6 +7,7 @@ checked:
 - apaleo/integrations/apaleo-integration-edges.yml
 - https://composio.dev/toolkits/trengo
 - https://github.com/PipedreamHQ/pipedream/tree/94800dd6de6640b942c65ea7ee655f71ac56d438/components/
+- https://github.com/PipedreamHQ/pipedream/tree/d5872355ef27b4efa769f05352f2820c299a456e/components/
 - https://monid.ai/tools/trengo
 - https://n8n.io/integrations/trengo/
 - https://zapier.com/api/v4/apps/
@@ -521,7 +522,7 @@ edges:
   channel: open-source-node
   relationship: ipaas-bridge
   direction: third-party
-  evidence: https://github.com/PipedreamHQ/pipedream/tree/94800dd6de6640b942c65ea7ee655f71ac56d438/components/trengo
+  evidence: https://github.com/PipedreamHQ/pipedream/tree/d5872355ef27b4efa769f05352f2820c299a456e/components/trengo
   category: null
   contract_reference:
     register: Pipedream components (PipedreamHQ/pipedream components/)
