@@ -48,31 +48,6 @@
   relationship: ipaas-bridge
   status: pending-generation
   arazzo: null
-- slug: trengo-apaleo-own
-  label: apaleo (own)
-  partner: apaleo
-  partner_name: apaleo (own)
-  category: Live chats & chatbots
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://store.apaleo.com/apps/trengo
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
-- slug: trengo-mews-own
-  label: Mews (own)
-  partner: mews-com
-  partner_name: Mews (own)
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://www.mews.com/en/products/marketplace/trengo
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
 - slug: trengo-zapier
   label: Zapier
   partner: zapier
@@ -491,4 +466,42 @@
   source: edge
   relationship: ipaas-bridge
   status: pending-partner-spec
+  arazzo: null
+- slug: trengo-apaleo-own
+  label: apaleo (own)
+  partner: apaleo
+  partner_name: apaleo (own)
+  category: Live chats & chatbots
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://store.apaleo.com/apps/trengo
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: trengo-mews-own
+  label: Mews (own)
+  partner: mews-com
+  partner_name: Mews (own)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://www.mews.com/en/products/marketplace/trengo
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: trengo-hubspot-own
+  label: HubSpot (own)
+  partner: hubspot
+  partner_name: HubSpot (own)
+  category: HELP_DESK
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://ecosystem.hubspot.com/marketplace/listing/trengo-183653
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
   arazzo: null

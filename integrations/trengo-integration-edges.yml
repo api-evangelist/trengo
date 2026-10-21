@@ -13,6 +13,7 @@ checked:
 - https://zapier.com/api/v4/apps/
 - https://zapier.com/apps/trengo/integrations
 - mews-com/integrations/mews-com-integration-edges.yml
+- hubspot/integrations/hubspot-integration-edges.yml
 summary: null
 marketplace_apps:
 - marketplace: zapier
@@ -58,39 +59,6 @@ marketplace_apps:
   pair_pages: 0
   pairs: []
 edges:
-- partner_name: apaleo (own)
-  partner: apaleo
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://store.apaleo.com/apps/trengo
-  mirror_of: apaleo/integrations/apaleo-integration-edges.yml
-  apps:
-  - Trengo
-  listing_count: 1
-  detected: '2026-10-14'
-  detected_by: mirror-platform-listings.py
-  category: Live chats & chatbots
-- partner_name: Mews (own)
-  partner: mews-com
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://www.mews.com/en/products/marketplace/trengo
-  mirror_of: mews-com/integrations/mews-com-integration-edges.yml
-  apps:
-  - Trengo
-  listing_count: 1
-  detected: '2026-10-14'
-  detected_by: mirror-platform-listings.py
 - partner_name: Zapier
   partner: zapier
   partner_match: aggregator
@@ -502,6 +470,56 @@ edges:
   direction: third-party
   category: Notes
   partner_url: https://evernote.com/
+- partner_name: apaleo (own)
+  partner: apaleo
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://store.apaleo.com/apps/trengo
+  mirror_of: apaleo/integrations/apaleo-integration-edges.yml
+  apps:
+  - Trengo
+  listing_count: 1
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+  category: Live chats & chatbots
+- partner_name: Mews (own)
+  partner: mews-com
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://www.mews.com/en/products/marketplace/trengo
+  mirror_of: mews-com/integrations/mews-com-integration-edges.yml
+  apps:
+  - Trengo
+  listing_count: 1
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+- partner_name: HubSpot (own)
+  partner: hubspot
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://ecosystem.hubspot.com/marketplace/listing/trengo-183653
+  mirror_of: hubspot/integrations/hubspot-integration-edges.yml
+  apps:
+  - Trengo
+  listing_count: 1
+  detected: '2026-10-21'
+  detected_by: mirror-platform-listings.py
+  category: HELP_DESK
 templates:
 - title: Send new Trengo inbound messages to Slack channels for seamless communication
   url: https://zapier.com/apps/slack/integrations/trengo/1254665/send-new-trengo-inbound-messages-to-slack-channels-for-seamless-communication
